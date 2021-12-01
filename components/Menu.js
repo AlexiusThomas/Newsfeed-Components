@@ -12,7 +12,34 @@ let menuItems = [
 
   //Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
- 
+  // function menuMaker(array) {
+  //   const divMenu = document.createElement('div');
+  //   const uList = document.createElement('ul');
+
+  //   array.forEach(item => {
+  //     const listItem = document.createElement('li');
+  //     listItem.textContent = item;
+  //     uList.appendChild(listItem);
+  //   });
+
+  //   menuMaker.classList.add('menu');
+  //   menuMaker.appendChild(uList);
+
+  //   const menuBtn = document.querySelector('.menu-button');
+  //   menuBtn.addEventListener('click', evt => {
+  //       menuMaker.classList.toggle('menu--open');
+  //     });
+
+  //     return menuMaker;
+  //   };
+
+  //   const popMenu = menuMaker(menuItems);
+  //   const head = document.querySelector('.header);
+  //   head.appendChild(popMenu);
+
+  //   console.log
+
+     
 function menuMaker (data) {
   const menu = document.createElement('div');
   const listOne = document.createElement('ul');
@@ -42,7 +69,6 @@ function menuMaker (data) {
 const header = document.querySelector('.header');
 
 header.appendChild(menuMaker(menuItems));
-
 
   // <div class="menu">
   //   <ul>

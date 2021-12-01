@@ -102,25 +102,25 @@ function articleMaker(obj) {
   const para3 = document.createElement('p');
   const expandBtn = document.createElement('span');
 
-  article.appendChild(titleArticle);
-  article.appendChild(dateOA);
-  article.appendChild(parElem1);
-  article.appendChild(parElem2);
-  article.appendChild(parElem3);
-  article.appendChild(expandBtn);
-
   article.classList.add('article');
   dateOA.classList.add('date');
   expandBtn.classList.add('expandButton');
+
+  article.appendChild(titleArticle);
+  article.appendChild(dateOA);
+  article.appendChild(para1);
+  article.appendChild(para2);
+  article.appendChild(para3);
+  article.appendChild(expandBtn);
 
   titleArticle.textContent = obj.title;
   dateOA.textContent = obj.date;
   para1.textContent = obj.firstParagraph;
   para2.textContent = obj.secondParagraph;
   para3.textContent = obj.thirdParagraph;
-  expandBtn.textContent = '+';
+  expandBtn.textContent = "+";
 
-  expandBtn.addEventListener('click', evt => {
+  expandBtn.addEventListener('click', () => {
     article.classList.toggle('article-open');
 });
 
