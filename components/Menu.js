@@ -12,33 +12,36 @@ let menuItems = [
 
   //Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
-  function menuMaker(array) {
-    const divMenu = document.createElement('div');
-    const uList = document.createElement('ul');
+ 
+function menuMaker (data) {
+  const menu = document.createElement('div');
+  const listOne = document.createElement('ul');
+  const listTwo = document.createElement('li');
 
-    array.forEach(item => {
-      const listItem = document.createElement('li');
-      listItem.textContent = item;
-      uList.appendChild(listItem);
-    });
+  menu.appendChild(listOne);
+  menu.classList.add('menu');
 
-    menuMaker.classList.add('menu');
-    menuMaker.appendChild(uList);
+  menuItems.forEach( item => {
+    listTwo.textContent = item;
+    listOne.appendChild(listTwo);
+  });
 
-    const menuBtn = document.querySelector('.menu-button');
-    menuBtn.addEventListener('click', evt => {
-        menuMaker.classList.toggle('menu--open');
-      });
+  const button = document.querySelector('.menu-button')
+  button.addEventListener('click', () => {
+    menu.classList.toggle('menu-open')
+  });
 
-      return menuMaker;
-    };
+  data.forEach((ele) => {
+    listTwo.textContent = ele;
 
-    const popMenu = menuMaker(menuItems);
-    const head = document.querySelector('.header');
+    menu.appendChild(listTwo);
+  })
+  return menu;
+}
 
-    head.appendChild(popMenu);
+const header = document.querySelector('.header');
 
-    console.log(menuMaker(menuItems));
+header.appendChild(menuMaker(menuItems));
 
 
   // <div class="menu">
