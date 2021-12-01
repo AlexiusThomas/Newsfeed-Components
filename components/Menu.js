@@ -11,6 +11,29 @@ let menuItems = [
 
 
   //Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
+  const menuMaker = (arr) => {
+
+  const menu = document.createElement("div");
+  const menuList = document.createElement("ul");
+
+  menu.appendChild(menuList);
+
+  menu.classList.add("menu");
+
+  arr.forEach(item => {
+    const menuItem = document.createElement("li");
+    menuItem.textContent = item;
+    menuList.appendChild(menuItem);
+  })
+  const menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener("click", () => {
+    menu.classList.toggle("menu--open");
+  })
+  return menu;
+}
+const header = document.querySelector(".header");
+const menu = menuMaker(menuItems)
+header.appendChild(menu);
 
   // function menuMaker(array) {
   //   const divMenu = document.createElement('div');
@@ -40,35 +63,35 @@ let menuItems = [
   //   console.log
 
      
-function menuMaker (data) {
-  const menu = document.createElement('div');
-  const listOne = document.createElement('ul');
-  const listTwo = document.createElement('li');
+// function menuMaker (data) {
+//   const menu = document.createElement('div');
+//   const listOne = document.createElement('ul');
+//   // const listTwo = document.createElement('li');
 
-  menu.appendChild(listOne);
-  menu.classList.add('menu');
+//   menu.appendChild(listOne);
+//   menu.classList.add('menu');
 
-  menuItems.forEach( item => {
-    listTwo.textContent = item;
-    listOne.appendChild(listTwo);
-  });
+//   menuItems.forEach( item => {
+//     listTwo.textContent = item;
+//     listOne.appendChild(listTwo);
+//   });
 
-  const button = document.querySelector('.menu-button')
-  button.addEventListener('click', () => {
-    menu.classList.toggle('menu-open')
-  });
+//   const button = document.querySelector('.menu-button')
+//   button.addEventListener('click', () => {
+//     menu.classList.toggle('menu-open')
+//   });
 
-  data.forEach((ele) => {
-    listTwo.textContent = ele;
+//   data.forEach((ele) => {
+//     listTwo.textContent = ele;
 
-    menu.appendChild(listTwo);
-  })
-  return menu;
-}
+//     menu.appendChild(listTwo);
+//   })
+//   return menu;
+// }
 
-const header = document.querySelector('.header');
+// const header = document.querySelector('.header');
 
-header.appendChild(menuMaker(menuItems));
+// header.appendChild(menuMaker(menuItems));
 
   // <div class="menu">
   //   <ul>
